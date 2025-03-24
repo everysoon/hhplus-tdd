@@ -7,5 +7,5 @@ package io.hhplus.tdd.point;
  * - USE : 사용
  */
 public enum TransactionType {
-    CHARGE, USE
+    CHARGE, USE,FAIL
 }

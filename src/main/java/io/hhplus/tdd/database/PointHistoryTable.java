@@ -27,7 +27,9 @@ public class PointHistoryTable {
     public List<PointHistory> selectAllByUserId(long userId) {
         return table.stream().filter(pointHistory -> pointHistory.userId() == userId).toList();
     }
-
+    public void delete(PointHistory history){
+        table.remove(history);
+    }
     private void throttle(long millis) {
         try {
             TimeUnit.MILLISECONDS.sleep((long) (Math.random() * millis));
