@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2967f0a7-66db-4094-85cf-cc490dd100da" name="변경" comment="" />
+    <list default="true" id="2967f0a7-66db-4094-85cf-cc490dd100da" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/exception/CustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +13,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hhplus-tdd-java" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "everysoon"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/everysoon/tdd-concurrency-control.git",
+    "accountId": "85b2cd8b-1cc6-4f9c-9485-137216b8c8c9"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2uk80SI5tERHeOQuHrs7gHTpGqa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,7 +39,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control/hhplus-tdd-java",
+    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -46,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742780988869</updated>
       <workItem from="1742780989907" duration="173000" />
+      <workItem from="1742789218798" duration="276000" />
     </task>
     <servers />
   </component>
