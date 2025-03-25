@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2967f0a7-66db-4094-85cf-cc490dd100da" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/exception/CustomException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
+    <list default="true" id="2967f0a7-66db-4094-85cf-cc490dd100da" name="변경" comment="포인트 사용/추가 transaction 추가">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,19 +18,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hhplus-tdd-java" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "everysoon"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;everysoon&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/everysoon/tdd-concurrency-control.git",
-    "accountId": "85b2cd8b-1cc6-4f9c-9485-137216b8c8c9"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/everysoon/tdd-concurrency-control.git&quot;,
+    &quot;accountId&quot;: &quot;85b2cd8b-1cc6-4f9c-9485-137216b8c8c9&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -39,7 +46,11 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control",
+    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control/hhplus-tdd-java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -62,10 +73,25 @@
       <updated>1742780988869</updated>
       <workItem from="1742780989907" duration="173000" />
       <workItem from="1742789218798" duration="276000" />
+      <workItem from="1742789893348" duration="1720000" />
+      <workItem from="1742866416476" duration="134000" />
     </task>
+    <task id="LOCAL-00001" summary="포인트 사용/추가 transaction 추가">
+      <option name="closed" value="true" />
+      <created>1742791227140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742791227140</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="포인트 사용/추가 transaction 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="포인트 사용/추가 transaction 추가" />
   </component>
 </project>
