@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2967f0a7-66db-4094-85cf-cc490dd100da" name="변경" comment="포인트 사용/추가 transaction 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/test/java/io/hhplus/tdd/TestConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hhplus-tdd-java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/common/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/common/TransactionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/test/java/io/hhplus/tdd/BasicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/test/java/io/hhplus/tdd/BasicTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control/hhplus-tdd-java",
+    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +79,7 @@
       <workItem from="1742789218798" duration="276000" />
       <workItem from="1742789893348" duration="1720000" />
       <workItem from="1742866416476" duration="134000" />
+      <workItem from="1742880003776" duration="330000" />
     </task>
     <task id="LOCAL-00001" summary="포인트 사용/추가 transaction 추가">
       <option name="closed" value="true" />
