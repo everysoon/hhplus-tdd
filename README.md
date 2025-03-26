@@ -58,10 +58,12 @@ automicInt.incrementAndGet();
 - Lock : 복잡한 동기화가 필요한 경우, 여러 조건에 따라 대기/알람이 필요한 경우
 - Automic 변수 : 간단한 변수 연산이 필요할 때 (ex. 카운터, 플래그 등)
 
-**해당 READMD.d는 [자바를 이용한 단일 환경에서의 동시성 제어 방법](https://velog.io/@everysoon/CAS-Compare-And-Swap-with-Automic-%EB%B3%80%EC%88%98)을 요약한 것입니다.** 
+**해당 READMD.d는 [자바를 이용한 단일 환경에서의 동시성 제어 방법](https://velog.io/@everysoon/%EC%9E%90%EB%B0%94%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8B%A8%EC%9D%BC-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C%EC%9D%98-%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%A0%9C%EC%96%B4-%EB%B0%A9%EB%B2%95)을 요약한 것입니다.** 
 
 #### 마치며
 위의 세 가지 방법들은 단일 환경(단일 JVM)에서 동시성 제어에 주로 적합하고,
 분산 환경에서는 여러 JVM 인스턴스가 네트워크를 통해 서로 통신하고 데이터를 공유하기 때문에, 락과 같은 동시성 제어를 관리하는 것이 더욱 어렵습니다.
 분산 환경에서의 동시성 제어는 데이터 베이스나 메세지큐, 캐시 시스템(ex.Redis)등과 같은 외부 시스템을 활용하여 처리한다고 합니다.
-[분산환경에서의 동시성제어를 위한 여러가지 방법들](https://velog.io/@everysoon/CAS-Compare-And-Swap-with-Automic-%EB%B3%80%EC%88%98)도 참고해보면 좋을 것 같습니다.
+[분산환경에서의 동시성제어를 위한 여러가지 방법들](https://velog.io/@everysoon/%EB%B6%84%EC%82%B0%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C%EC%9D%98-%EB%8F%99%EC%8B%9C%EC%84%B1%EC%A0%9C%EC%96%B4%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95%EB%93%A4-3knonfxn)도 참고해보면 좋을 것 같습니다.
+
+
