@@ -27,6 +27,7 @@ dependencies {
     annotationProcessor(libs.lombok)
     annotationProcessor(libs.spring.boot.configuration.processor)
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2") // JUnit 5
 }
 
 // about source and compilation
