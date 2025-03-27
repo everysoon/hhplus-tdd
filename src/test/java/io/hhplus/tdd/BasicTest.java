@@ -35,15 +35,11 @@ public class BasicTest {
 
     @BeforeEach
     public void setup() {
-//        userPointTable.insertOrUpdate(1L, 100L);
         isUnitTest = false;
         createMockPoint(userPointTable,1L);
         createMockPoint(userPointTable,2L);
-//        userPointTable.insertOrUpdate(2L, 200L);
         createMockHistory(historyTable,1L);
         createMockHistory(historyTable,2L);
-//        historyTable.insert(1L, 100L, TransactionType.CHARGE, fixedTimestamp);
-//        historyTable.insert(2L, 200L, TransactionType.CHARGE, fixedTimestamp);
     }
     @AfterEach
     public void shutdown() {
@@ -52,6 +48,7 @@ public class BasicTest {
     }
     @Test
     @DisplayName("유저 포인트 조회")
+    // 유저 포인트를 조회했을 때, 잔액이 예상과 같아야 한다.
     public void getUserPoint() {
         UserPoint userPoint = pointService.point(userId);
         assertEquals(baseAmount, userPoint.point());
@@ -59,6 +56,7 @@ public class BasicTest {
 
     @Test
     @DisplayName("point 기록 조회")
+    // point 기록을 조회했을 때 예상 수와 같아야 한다.
     public void getHistory() {
         List<PointHistory> histories = pointService.history(userId);
         assertEquals(1, histories.size());
@@ -67,6 +65,7 @@ public class BasicTest {
 
     @Test
     @DisplayName("point 충전 테스트 - 최대 포인트 초과")
+    // 최대 포인트가 초과했을때 CustomException 을 반환해야 한다.
     public void chargePointWhenOverCharging() {
         assertThrows(CustomException.class, () -> {
             pointService.charge(userId, 99999999L);
@@ -75,6 +74,7 @@ public class BasicTest {
 
     @Test
     @DisplayName("point 충전 테스트")
+    // 포인트를 충전 했을때 , 잔액이 예상과 같아야 한다.
     public void chargePoint() {
         UserPoint userPoint = pointService.charge(userId, baseAmount);
         assertEquals(baseAmount*2, userPoint.point());
@@ -82,6 +82,7 @@ public class BasicTest {
 
     @Test
     @DisplayName("point 사용 테스트")
+    // 포인트를 사용했을때, 잔액이 예상과 같아야 한다.
     public void usePoint() {
         UserPoint userPoint = pointService.use(userId, baseAmount);
         assertEquals(0, userPoint.point());
@@ -89,6 +90,7 @@ public class BasicTest {
 
     @Test
     @DisplayName("point 사용 테스트 - 더 많이 사용할 경우")
+    // 잔고 포인트보다 초과량을 사용했을 때 CustomException 을 반환해야 한다.
     public void usePointOverPoint() {
         assertThrows(CustomException.class, () -> {
             pointService.use(userId, 100000L);

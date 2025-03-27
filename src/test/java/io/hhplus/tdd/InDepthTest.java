@@ -36,6 +36,7 @@ public class InDepthTest {
         createMockPoint(userPointTable,userId); // userId : 1L , amount : 100
     }
     @Test
+    // 잔액이 100인 user의 포인트를 1000원씩 10번 충전 할 예정으로 결과는 10100원이 되어야 한다.
     public void 동시_충전(){
         long chargeAmount = 1000L; // 각 스레드가 충전할 금액
         long expectedFinalAmount = baseAmount + (threadCount * chargeAmount); // 100 + (10 * 1000) = 10100
@@ -58,6 +59,7 @@ public class InDepthTest {
         assertEquals(expectedFinalAmount, finalPoint.point()); // 최종 포인트 검증
     }
     @Test
+    // 잔액이 100인 user의 포인트를 1원씩 10번 차감할 예정으로 결과는 90원이 되어야 한다.
     public void 동시_사용(){
         long chargeAmount = 1L; // 각 스레드가 충전할 금액
         long expectedFinalAmount = baseAmount - (threadCount * chargeAmount); // 100 + (10 * 1) = 90L

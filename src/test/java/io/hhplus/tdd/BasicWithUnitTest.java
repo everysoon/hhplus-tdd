@@ -4,6 +4,7 @@ import io.hhplus.tdd.database.PointHistoryTable;
 import io.hhplus.tdd.database.UserPointTable;
 import io.hhplus.tdd.exception.CustomException;
 import io.hhplus.tdd.point.PointHistory;
+import io.hhplus.tdd.point.PointService;
 import io.hhplus.tdd.point.TransactionType;
 import io.hhplus.tdd.point.UserPoint;
 import org.junit.jupiter.api.BeforeEach;
@@ -65,8 +66,8 @@ public class BasicWithUnitTest {
 
     @Test
     @DisplayName("point 충전 테스트 - 최대 포인트 초과")
+    // 포인트를 최대 잔액보다 더 많이 충전 했을 때, CustomException이 발생해야 하며, 그 후 로직은 실행이 되지 않아야 한다.
     public void chargePointWhenOverCharging() {
-        // 충전 초과시 에러 잘 나나 확인
         assertThrows(CustomException.class, () -> {
             pointService.charge(userId, 20000000L);
         });
@@ -101,11 +102,11 @@ public class BasicWithUnitTest {
 
     @Test
     @DisplayName("point 사용 테스트 - 더 많이 사용할 경우")
+    // 포인트를 초과해서 사용했을 때, CustomException이 발생해야 하며, 그 후 로직은 실행이 되지 않아야 한다.
     public void usePointOverPoint() {
         assertThrows(CustomException.class, () -> {
             pointService.use(userId, 100000L);
         });
-
         // 그 후 로직 실행 안 됐는지 확인
         verify(userPointTable, never()).insertOrUpdate(anyLong(), anyLong());
         verify(historyTable, never()).insert(anyLong(), anyLong(), any(TransactionType.class), anyLong());

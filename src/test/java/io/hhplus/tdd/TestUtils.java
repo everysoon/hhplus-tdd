@@ -23,7 +23,6 @@ public class TestUtils {
     public static long cursor = 1;
 
     public static void createMockPoint(UserPointTable userPointTable, long userId) {
-
         if (isUnitTest) {
             UserPoint userPoint = new UserPoint(userId, userId * baseAmount, System.currentTimeMillis());
             lenient().when(userPointTable.selectById(userId)).thenReturn(userPoint);
@@ -31,14 +30,6 @@ public class TestUtils {
             userPointTable.insertOrUpdate(userId, userId * baseAmount);
         }
     }
-//
-//    public static List<PointHistory> createMockHistories(PointHistoryTable pointHistoryTable, long userId) {
-//        PointHistory history = new PointHistory(cursor++, userId, userId * baseAmount, TransactionType.CHARGE, System.currentTimeMillis());
-//        List<PointHistory> histories = new ArrayList<>();
-//        histories.add(history);
-//        return histories;
-//    }
-
     public static void createMockHistory(PointHistoryTable pointHistoryTable, long userId) {
         List<PointHistory> historyList = new ArrayList<>();
         if (isUnitTest) {

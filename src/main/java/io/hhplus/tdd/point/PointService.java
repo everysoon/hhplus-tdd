@@ -1,5 +1,6 @@
 package io.hhplus.tdd.point;
 
+import io.hhplus.tdd.common.LockManager;
 import io.hhplus.tdd.common.TransactionManager;
 import io.hhplus.tdd.database.PointHistoryTable;
 import io.hhplus.tdd.database.UserPointTable;
@@ -9,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -20,8 +22,7 @@ public class PointService {
     private final PointHistoryTable pointHistoryTable;
     private final Long MAXIMUM_POINT = 999999L;
 
-    private final ReentrantLock lock = new ReentrantLock();
-
+    private final ConcurrentHashMap<Long, ReentrantLock> lockMap = new ConcurrentHashMap<>();
     public UserPoint point(Long id) {
         return userPointTable.selectById(id);
     }
@@ -31,38 +32,38 @@ public class PointService {
     }
 
     public UserPoint charge(Long id, Long amount) {
-        return runTransactionWithLock(id, amount, TransactionType.CHARGE);
+        return executeTransactionWithLock(id, amount, TransactionType.CHARGE);
     }
 
     public UserPoint use(Long id, Long amount) {
-        return runTransactionWithLock(id, amount, TransactionType.USE);
+        return executeTransactionWithLock(id, amount, TransactionType.USE);
     }
 
-    private UserPoint runTransactionWithLock(Long id, Long amount, TransactionType transactionType) {
-        lock.lock();
+    private UserPoint executeTransactionWithLock(Long id, Long amount, TransactionType transactionType) {
+        ReentrantLock lock = LockManager.getLock(id);
         try {
             UserPoint userPoint = userPointTable.selectById(id);
             validation(userPoint.point(), amount, transactionType);
             long sum = getSum(userPoint.point(), amount, transactionType);
             // 트랜잭션 실행
-            AtomicReference<UserPoint> updatedUserPoint = new AtomicReference<>();
-            TransactionManager.runTransaction(userPoint.point(), (originalPoint) -> {
-                // 액션 실행
-                UserPoint result = userPointTable.insertOrUpdate(id, sum);
-                pointHistoryTable.insert(id, sum, transactionType, System.currentTimeMillis());
-                userPointTable.selectById(id);
-                updatedUserPoint.set(result);
-            }, () -> {
-                // 롤백 처리
-                userPointTable.insertOrUpdate(id, userPoint.point());
-                pointHistoryTable.insert(id, sum, TransactionType.FAIL, System.currentTimeMillis());
-            });
-            return updatedUserPoint.get();
+            return executeTransaction(id,sum,transactionType,userPoint.point());
         } finally {
             lock.unlock();
+            LockManager.releaseLock(id,lock);
         }
     }
-
+    private UserPoint executeTransaction(Long id, Long sum, TransactionType transactionType, Long originalPoint) {
+        AtomicReference<UserPoint> updatedUserPoint = new AtomicReference<>();
+        TransactionManager.runTransaction(originalPoint, (backup) -> {
+            UserPoint result = userPointTable.insertOrUpdate(id, sum);
+            pointHistoryTable.insert(id, sum, transactionType, System.currentTimeMillis());
+            updatedUserPoint.set(result);
+        }, () -> {
+            userPointTable.insertOrUpdate(id, originalPoint);
+            pointHistoryTable.insert(id, sum, TransactionType.FAIL, System.currentTimeMillis());
+        });
+        return updatedUserPoint.get();
+    }
     private void validation(long point, Long amount, TransactionType transactionType) {
         switch (transactionType) {
             case USE:
