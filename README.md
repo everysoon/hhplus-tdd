@@ -23,7 +23,13 @@ public syncronized void increment(){
 - 자바에서 제공해주는 만큼 JVM이 내부적으로 모니터링을 처리하므로 개발자가 명시적으로 락을 관리할 필요가 없다는 장점이 있습니다.
 하지만 동기화된 메서드는 한번에 하나의 스레드만 접근할 수 있기 때문에, 경쟁 상태가 심해지면 블로킹이 발생하거나, 데드락이 발생하며 성능이 크게 저하될 수 있습니다.
 
-### 2) ReentrantLock 
+### 2) ReentrantLock + concurrentHashMap
+> concurrentHashMap?
+> 멀티스레드 환경에서 안전하게 데이터를 저장/조회할 수 있도록 설계된 Map
+> 여러 스레드가 동일한 Map에 동시에 접근하여 읽거나 쓸 때 HashMap은 데이터 불일치, 경쟁조건이 발생 할 수 있음
+> oncurrentHashMap은 내부적으로 segment 단위로 동기화를 처리하여 높은 성능을 제공.
+> (한 번에 하나의 스레드만 특정 데이터에 접근하거나, 동시성 이슈가 발생하는 부분이 특정 로직 일부인 경우 ReentrantLock만 사용해도 가능함)
+
 Lock은 자바5부터 도입된 인터페이스로 Lock의 구현체 중 ReentrantLock은 명시적으로 락을 관리할 수 있는 기능을 제공 해 syncronized와 유사하지만 더 세밀한 제어가 가능합니다.
 ```
 Lock lock = new ReentrantLock();
@@ -40,6 +46,8 @@ catch(Exception e){
 - Lock은 Condition 인터페이스를 통해 보다 복잡한 동기화 및 대기/알림 메커니즘을 제공합니다.
 하지만 락을 직접 관리해야 하므로 unlock()을 호출하지 않으면 리소스가 차단될 위험이 있고, 코드가 상대적으로 복잡해진다는 단점이 있습니다.
 
+**해당 프로젝트에서는 ReentrantLock + concurrentHashMap을 사용하여 특정 키(userId)로 Lock을 관리**
+
 ### 3) Automic 변수
 Automic 변수는 java.util.concurrent.atomic 패키지에서 제공하는 클래스들로,
 원자적 연산을 지원하여 멀티스레드 환경에서 경쟁 상태 없이 안전하게 변수 값을 수정할 수 있도록 돕습니다. (ex. AutomicInteger, AutomicReference ..)
@@ -55,7 +63,7 @@ automicInt.incrementAndGet();
 
 ### 4) 정리
 - syncronized : 간단한 동기화가 필요한 경우 (코드 간결성)
-- Lock : 복잡한 동기화가 필요한 경우, 여러 조건에 따라 대기/알람이 필요한 경우
+- Lock + concurrentHashMap: 복잡한 동기화가 필요한 경우, 여러 조건에 따라 대기/알람이 필요한 경우
 - Automic 변수 : 간단한 변수 연산이 필요할 때 (ex. 카운터, 플래그 등)
 
 **해당 READMD.d는 [자바를 이용한 단일 환경에서의 동시성 제어 방법](https://velog.io/@everysoon/%EC%9E%90%EB%B0%94%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8B%A8%EC%9D%BC-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C%EC%9D%98-%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%A0%9C%EC%96%B4-%EB%B0%A9%EB%B2%95)을 요약한 것입니다.** 
