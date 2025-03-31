@@ -20,7 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class PointService {
     private final UserPointTable userPointTable;
     private final PointHistoryTable pointHistoryTable;
-    private final Long MAXIMUM_POINT = 999999L;
+    private final Long MAXIMUM_POINT = 1_000_000L;
 
     private final ConcurrentHashMap<Long, ReentrantLock> lockMap = new ConcurrentHashMap<>();
 
@@ -33,14 +33,14 @@ public class PointService {
     }
 
     public UserPoint charge(Long id, Long amount) {
-        return executeTransactionWithLock(id, amount, TransactionType.CHARGE);
+        return executeWithLock(id, amount, TransactionType.CHARGE);
     }
 
     public UserPoint use(Long id, Long amount) {
-        return executeTransactionWithLock(id, amount, TransactionType.USE);
+        return executeWithLock(id, amount, TransactionType.USE);
     }
 
-    private UserPoint executeTransactionWithLock(Long id, Long amount, TransactionType transactionType) {
+    private UserPoint executeWithLock(Long id, Long amount, TransactionType transactionType) {
         ReentrantLock lock = LockManager.getLock(id);
         try {
             UserPoint userPoint = userPointTable.selectById(id);
