@@ -23,6 +23,7 @@ public class PointService {
     private final Long MAXIMUM_POINT = 999999L;
 
     private final ConcurrentHashMap<Long, ReentrantLock> lockMap = new ConcurrentHashMap<>();
+
     public UserPoint point(Long id) {
         return userPointTable.selectById(id);
     }
@@ -44,26 +45,20 @@ public class PointService {
         try {
             UserPoint userPoint = userPointTable.selectById(id);
             validation(userPoint.point(), amount, transactionType);
-            long sum = getSum(userPoint.point(), amount, transactionType);
-            // 트랜잭션 실행
-            return executeTransaction(id,sum,transactionType,userPoint.point());
-        } finally {
-            lock.unlock();
-            LockManager.releaseLock(id,lock);
-        }
-    }
-    private UserPoint executeTransaction(Long id, Long sum, TransactionType transactionType, Long originalPoint) {
-        AtomicReference<UserPoint> updatedUserPoint = new AtomicReference<>();
-        TransactionManager.runTransaction(originalPoint, (backup) -> {
+            long sum = userPoint.point() + getAmount(amount, transactionType);
+
+            AtomicReference<UserPoint> updatedUserPoint = new AtomicReference<>();
             UserPoint result = userPointTable.insertOrUpdate(id, sum);
             pointHistoryTable.insert(id, sum, transactionType, System.currentTimeMillis());
             updatedUserPoint.set(result);
-        }, () -> {
-            userPointTable.insertOrUpdate(id, originalPoint);
-            pointHistoryTable.insert(id, sum, TransactionType.FAIL, System.currentTimeMillis());
-        });
-        return updatedUserPoint.get();
+
+            return updatedUserPoint.get();
+        } finally {
+            lock.unlock();
+            LockManager.releaseLock(id, lock);
+        }
     }
+
     private void validation(long point, Long amount, TransactionType transactionType) {
         switch (transactionType) {
             case USE:
@@ -79,8 +74,8 @@ public class PointService {
         }
     }
 
-    public Long getSum(Long point, Long amount, TransactionType transactionType) {
-        return transactionType == TransactionType.USE ? point - amount : point + amount;
+    public Long getAmount(Long amount, TransactionType transactionType) {
+        return transactionType == TransactionType.USE ? -amount : amount;
     }
 }
 
