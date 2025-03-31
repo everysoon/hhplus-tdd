@@ -1,11 +1,6 @@
 package io.hhplus.tdd;
 
-import io.hhplus.tdd.database.PointHistoryTable;
-import io.hhplus.tdd.database.UserPointTable;
-import io.hhplus.tdd.exception.CustomException;
-import io.hhplus.tdd.point.PointHistory;
-import io.hhplus.tdd.point.PointService;
-import io.hhplus.tdd.point.UserPoint;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
