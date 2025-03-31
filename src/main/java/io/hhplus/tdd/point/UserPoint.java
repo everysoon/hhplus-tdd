@@ -9,4 +9,8 @@ public record UserPoint(
     public static UserPoint empty(long id) {
         return new UserPoint(id, 0, System.currentTimeMillis());
     }
+
+    public long sum(TransactionType transactionType, long amount) {
+        return transactionType == TransactionType.USE ? point-amount : point + amount;
+    }
 }

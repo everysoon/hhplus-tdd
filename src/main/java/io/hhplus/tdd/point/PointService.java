@@ -22,8 +22,6 @@ public class PointService {
     private final PointHistoryTable pointHistoryTable;
     private final Long MAXIMUM_POINT = 1_000_000L;
 
-    private final ConcurrentHashMap<Long, ReentrantLock> lockMap = new ConcurrentHashMap<>();
-
     public UserPoint point(Long id) {
         return userPointTable.selectById(id);
     }
@@ -45,7 +43,7 @@ public class PointService {
         try {
             UserPoint userPoint = userPointTable.selectById(id);
             validation(userPoint.point(), amount, transactionType);
-            long sum = userPoint.point() + getAmount(amount, transactionType);
+            long sum = userPoint.sum(transactionType,amount);
 
             AtomicReference<UserPoint> updatedUserPoint = new AtomicReference<>();
             UserPoint result = userPointTable.insertOrUpdate(id, sum);
@@ -63,19 +61,15 @@ public class PointService {
         switch (transactionType) {
             case USE:
                 if (point - amount < 0) {
-                    throw new CustomException("-202", "잔고가 부족합니다.");
+                    throw new CustomException("-202","잔고가 부족합니다.");
                 }
                 break;
             case CHARGE:
                 if (point + amount > MAXIMUM_POINT) {
-                    throw new CustomException("-201", "최대 잔고를 초과했습니다.");
+                    throw new CustomException("-201","최대 잔고를 초과했습니다.");
                 }
                 break;
         }
-    }
-
-    public Long getAmount(Long amount, TransactionType transactionType) {
-        return transactionType == TransactionType.USE ? -amount : amount;
     }
 }
 

@@ -5,23 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2967f0a7-66db-4094-85cf-cc490dd100da" name="변경" comment="포인트 사용/추가 transaction 추가">
-      <change afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/test/java/io/hhplus/tdd/TestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/common/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/common/TransactionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-java/src/test/java/io/hhplus/tdd/BasicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-java/src/test/java/io/hhplus/tdd/BasicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/UserPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/UserPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/BasicWithUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/BasicWithUnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/hhplus-tdd-java" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="soon" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -46,11 +54,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.BasicTest.getHistory.executor": "Run",
+    "Gradle.BasicTest.getUserPoint.executor": "Run",
+    "Gradle.BasicWithUnitTest.chargePointWhenOverCharging.executor": "Run",
+    "Gradle.BasicWithUnitTest.getHistory.executor": "Run",
+    "Gradle.BasicWithUnitTest.getUserPoint.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/soon/soon-workspace/soon-study/tdd-concurrency-control",
+    "last_opened_file_path": "/Users/parkminsun/Documents/study-soon/hhplus/hhplus-tdd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,11 +73,149 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="Gradle.BasicWithUnitTest.chargePointWhenOverCharging">
+    <configuration name="BasicTest.getHistory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.BasicTest.getHistory&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BasicTest.getUserPoint" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.BasicTest.getUserPoint&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BasicWithUnitTest.chargePointWhenOverCharging" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.BasicWithUnitTest.chargePointWhenOverCharging&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BasicWithUnitTest.getHistory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.BasicWithUnitTest.getHistory&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BasicWithUnitTest.getUserPoint" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.BasicWithUnitTest.getUserPoint&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="TddApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="hhplus-tdd-jvm.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.hhplus.tdd.TddApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.BasicWithUnitTest.chargePointWhenOverCharging" />
+        <item itemvalue="Gradle.BasicWithUnitTest.getUserPoint" />
+        <item itemvalue="Gradle.BasicWithUnitTest.getHistory" />
+        <item itemvalue="Gradle.BasicTest.getHistory" />
+        <item itemvalue="Gradle.BasicTest.getUserPoint" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -80,6 +232,7 @@
       <workItem from="1742789893348" duration="1720000" />
       <workItem from="1742866416476" duration="134000" />
       <workItem from="1742880003776" duration="330000" />
+      <workItem from="1743424063937" duration="2161000" />
     </task>
     <task id="LOCAL-00001" summary="포인트 사용/추가 transaction 추가">
       <option name="closed" value="true" />

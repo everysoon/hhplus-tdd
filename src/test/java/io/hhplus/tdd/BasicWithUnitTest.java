@@ -69,7 +69,7 @@ public class BasicWithUnitTest {
     // 포인트를 최대 잔액보다 더 많이 충전 했을 때, CustomException이 발생해야 하며, 그 후 로직은 실행이 되지 않아야 한다.
     public void chargePointWhenOverCharging() {
         assertThrows(CustomException.class, () -> {
-            pointService.charge(userId, 20000000L);
+            pointService.charge(userId, 1_000_001L);
         });
         // 그 후 로직 실행 안 됐는지 확인
         verify(userPointTable, never()).insertOrUpdate(anyLong(), anyLong());
